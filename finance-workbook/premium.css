@@ -8,3 +8,12 @@
 
 /* Smooth desktop/mobile financial history line chart */
 #expenseChart{display:block;min-height:0;padding:4px 0 0}#expenseChart .area-chart{display:block;width:100%;height:auto;max-height:285px;min-width:0;overflow:visible}#expenseChart .area-chart circle{transition:r .2s,fill .2s}#expenseChart .area-chart circle:hover{r:6;fill:#fff}#expenseChart .area-chart text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}@media(max-width:750px){#expenseChart{padding:6px 0 0}#expenseChart .area-chart{max-height:235px}}
+
+/* Refined category-specific icon chips */
+.cat-icon.cat-orange{background:linear-gradient(145deg,#714327,#492f27);color:#ffa368}
+.cat-icon.cat-blue{background:linear-gradient(145deg,#294d71,#253549);color:#8bbef8}
+.cat-icon.cat-purple{background:linear-gradient(145deg,#594071,#362a4d);color:#d0a7f7}
+.cat-icon.cat-green{background:linear-gradient(145deg,#2d5a49,#233c35);color:#79d7ae}
+.cat-icon.cat-cyan{background:linear-gradient(145deg,#285861,#273f47);color:#84d8dc}
+.cat-icon.cat-pink{background:linear-gradient(145deg,#724254,#472b3e);color:#f6a1bd}
+.cat-icon.cat-neutral{background:linear-gradient(145deg,#454956,#30333a);color:#b9bfcc}
