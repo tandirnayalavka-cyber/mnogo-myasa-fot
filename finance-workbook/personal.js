@@ -8,7 +8,7 @@ function dateToday(){const d=new Date();return d.getFullYear()+'-'+pad(d.getMont
 function records(){return Array.isArray(book?.transactions)?book.transactions:[]}
 function incomes(){return records().filter(t=>t.type==='income')}
 function expensesFromCats(m){return sum(book.categories.flatMap(c=>c.items.flatMap(i=>m===-1?i.amounts:[i.amounts[m]])))}
-function legacyEntries(){return book.categories.flatMap(c=>c.items.flatMap(i=>i.amounts.flatMap((amount,m)=>amount===null||amount===undefined||amount===0?[]:[{id:'legacy-'+i.id+'-'+m,type:'expense',title:i.name,amount,date:state.year+'-'+pad(m+1)+'-01',categoryId:c.id,legacy:true}])))}
+function legacyEntries(){const tracked=new Map();for(const t of records()){if(t.type!=='expense'||!t.itemId)continue;const key=t.itemId+':'+monthOf(t.date);tracked.set(key,(tracked.get(key)||0)+t.amount)}return book.categories.flatMap(c=>c.items.flatMap(i=>i.amounts.flatMap((raw,m)=>{const amount=Math.round(((raw||0)-(tracked.get(i.id+':'+m)||0))*100)/100;return amount>0?[{id:'legacy-'+i.id+'-'+m,type:'expense',title:i.name,amount,date:state.year+'-'+pad(m+1)+'-01',categoryId:c.id,legacy:true}]:[]})))}
 function incomeAmount(m){return sum(incomes().filter(t=>m===-1||monthOf(t.date)===m).map(t=>t.amount))}
 function expenseAmount(m){return expensesFromCats(m)}
 function balance(m){if(m<0)return Math.round((incomeAmount(-1)-expenseAmount(-1))*100)/100;let v=0;for(let i=0;i<=m;i++)v+=incomeAmount(i)-expenseAmount(i);return Math.round(v*100)/100}
