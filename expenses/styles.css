@@ -14,3 +14,6 @@ main{grid-template-columns:minmax(0,1fr);max-width:650px;margin:auto}.overview,.
 
 /* PIN gate: the shell never appears before an authenticated state response. */
 .login-panel{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px 18px}.login-card{width:100%;max-width:420px;background:#fffdfb;border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:0 5px 25px #42230c08}.login-card h1{font-size:36px;margin-bottom:22px}.login-intro{color:#666269;font-size:16px}.login-card label{margin-bottom:3px}.login-card #pin{font-size:30px;letter-spacing:12px;text-align:center;min-height:62px}.login-card #loginMessage{min-height:22px;margin:14px 0 0}.login-footnote{font-size:12px;line-height:1.5;margin:22px 0 0}.is-locked #privateApp{display:none!important}.is-locked .privacy-veil{display:none!important}.privacy-covered #privateApp{visibility:hidden}.privacy-covered #toast{visibility:hidden}.privacy-veil{padding:24px;text-align:center}.version{border:1px solid var(--line);min-height:42px}@media(max-width:430px){.login-card{padding:26px 24px}.login-card h1{font-size:32px}}
+
+/* The reserved page intentionally has no expense controls or content. */
+main:has(#placeholderPanel:not([hidden])){max-width:650px;grid-template-columns:minmax(0,1fr)}
